@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="des.min.js"></script>
+    <title>test</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
+  </head>
+  <body>
+    <h1>test</h1>
+    <div id="app">
+        <el-button size="small" type="primary" @click="handler">点击测试</el-button>
+    </div>
+  </body>
+
+  <!-- import Vue before Element -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        url: "",
+        words: "",
+      },
+      methods: {
+        handler() {
+             console.log("asdsa");
+    //密钥
+    var key = "custom key";
+    //密文
+    var value = "DES对称加密算法";
+    //实例化
+    var Des = new Des(key,value);
+    //加密
+    var ciphertext = Des.encrypt(key,value);
+    //解密
+    var plaintext = Des.decrypt(key,ciphertext);
+    console.log("密文 :",ciphertext);
+    //95c55f672cfcd96920348ef3e6a2a46ea4747be745871b5760c52452fca93a2b
+    console.log("明文:",plaintext);
+    //DES对称加密算法
+        },
+      },
+    });
+  </script>
+
+  <ml>
+
+</html>
